@@ -1,0 +1,13 @@
+<import src="movie-list/movie-list-template.wxml" />
+
+<view class='movies-container'>
+
+  <block wx:for="{{[inTheaters,comingSoon,top250]}}">
+    <view class='movie-template'>
+      <template is="movieListTemplate" data="{{...item}}" />
+
+    </view>
+
+  </block>
+
+</view>

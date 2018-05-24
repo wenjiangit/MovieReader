@@ -1,0 +1,30 @@
+<!--pages/movies/movie-detail/movie-detail.wxml-->
+<view class='movie-detail-container'>
+
+  <view class='movie-header'>
+
+    <text>电影名</text>
+
+    <view>
+
+      <text class='movie-region'>香港</text>
+      <text>·</text>
+      <text class='movie-time'>1996</text>
+
+    </view>
+
+    <view class='like-and-comment'>
+      <text class='like-count'>1222</text>
+      <text>人喜欢</text>
+      <text class='comment-count'>2222</text>
+      <text>条评论</text>
+
+
+    </view>
+
+    <image class='movie-img'></image>
+
+  </view>
+
+
+</view>
