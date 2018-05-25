@@ -2,5 +2,11 @@
 <import src="../movie-grid/movie-grid-template.wxml" />
 
 <view>
-  <template is="movieGridTemplate" data="{{movies}}"/>
+  <template is="movieGridTemplate" data="{{movies}}" />
+</view>
+
+<view wx:if="{{isLoadMore}}" class='load-more-box'>
+
+  <text class='load-more-text'>{{loadMoreText}}</text>
+
 </view>
