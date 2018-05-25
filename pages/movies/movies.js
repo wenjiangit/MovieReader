@@ -1,5 +1,5 @@
-var util = require("../../utils/util.js");
-var app = getApp();
+const util = require("../../utils/util.js");
+const app = getApp();
 
 Page({
 
@@ -10,7 +10,10 @@ Page({
 
     inTheaters: {},
     comingSoon: {},
-    top250: {}
+    top250: {},
+    movieListShow: true,
+    searchPanelShow: false,
+    searchResult:{}
   },
 
   /**
@@ -31,6 +34,7 @@ Page({
   },
 
   getMovieList: function (url, category, dataKey) {
+    wx.showNavigationBarLoading();
     var that = this;
     wx.request({
       url: url,
@@ -39,10 +43,11 @@ Page({
         'content-type': "json"
       },
       success: function (res) {
-        console.log(res);
+        wx.hideNavigationBarLoading();
         that.processDoubanData(res.data, category, dataKey);
       },
       fail: function () {
+        wx.hideNavigationBarLoading();
         console.log("failed");
       }
     })
@@ -56,16 +61,15 @@ Page({
     wx.navigateTo({
       url: 'movie-detail/movie-detail?id=' + movieId,
     })
-  }
-  ,
+  },
 
   onMoreTap: function (e) {
     var category = e.currentTarget.dataset.category;
     wx.navigateTo({
       url: 'more-movie/more-movie?category=' + category,
     })
-  }
-  ,
+  },
+
   processDoubanData: function (moviesDouban, category, dataKey) {
     var movies = [];
     for (var index in moviesDouban.subjects) {
@@ -93,6 +97,24 @@ Page({
     };
 
     this.setData(readyData);
+  },
+  onBindConfirm: function (e) {
+    if (e.detail.value) {
+      this.setData({
+        movieListShow: false,
+        searchPanelShow: true
+      })
+
+      var searchUrl = app.globalData.doubanBase + "/v2/movie/search?q=" + e.detail.value;
+      this.getMovieList(searchUrl, "", "searchResult");
+    }
+  },
+  onCloseTap: function () {
+    this.setData({
+      movieListShow: true,
+      searchPanelShow: false,
+      searchResult: {}
+    })
   }
 })
 

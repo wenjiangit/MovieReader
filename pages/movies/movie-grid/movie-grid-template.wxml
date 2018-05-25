@@ -1,16 +1,16 @@
-<import src="../movie/movie-template.wxml"/>
+<import src="../movie/movie-template.wxml" />
 
 
 <template name="movieGridTemplate">
 
-<view class='movies-container'>
-  <block wx:for="{{movies}}">
+  <view class='grid-container'>
+    <block wx:for="{{movies}}">
 
-  <view class='single-movie-container'>
+      <view class='single-movie-container'>
 
-    <template is="movieTemplate" data="{{...item}}" />
-</view>
-  </block>
+        <template is="movieTemplate" data="{{...item}}" />
+      </view>
+    </block>
 
   </view>
 </template>
