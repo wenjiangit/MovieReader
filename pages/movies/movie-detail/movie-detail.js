@@ -1,5 +1,7 @@
 // pages/movies/movie-detail/movie-detail.js
 var app = getApp();
+const app = getApp();
+const util = require("../../../utils/util.js");
 
 Page({
 
