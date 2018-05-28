@@ -1,28 +1,90 @@
 <!--pages/movies/movie-detail/movie-detail.wxml-->
+<import src="../stars/stars-template.wxml" />
 <view class='movie-detail-container'>
 
   <view class='movie-header'>
 
-    <text>电影名</text>
+    <image class='header-bg' src="{{movie.image}}" mode='aspectFill'></image>
 
-    <view>
+    <view class='header-hover'>
 
-      <text class='movie-region'>香港</text>
-      <text>·</text>
-      <text class='movie-time'>1996</text>
+      <text class='movie-title'>{{movie.title}}</text>
 
+      <view class='country-year'>
+
+        <text class='movie-region'>{{movie.country}}</text>
+        <text>·</text>
+        <text class='movie-year'>{{movie.year}}</text>
+
+      </view>
+
+      <view class='like-and-comment'>
+        <text class='bright'>{{movie.collectCount}}</text>
+        <text class='unbright'>人喜欢</text>
+        <text class='bright'>{{movie.commentCount}}</text>
+        <text class='unbright'>条评论</text>
+
+      </view>
     </view>
 
-    <view class='like-and-comment'>
-      <text class='like-count'>1222</text>
-      <text>人喜欢</text>
-      <text class='comment-count'>2222</text>
-      <text>条评论</text>
+    <image class='movie-img' src="{{movie.image}}" bindtap='onImgTap' data-url='{{movie.image}}'></image>
 
+  </view>
 
+  <view class='movie-info'>
+
+    <text class='original'>{{movie.originalTitle}}</text>
+
+    <view class='info-list'>
+      <view class='info-item'>
+        <text class='left'>评分</text>
+        <view class='right'>
+          <template is="starTemplate" data="{{stars:movie.stars,score:movie.score}}" />
+        </view>
+      </view>
+
+      <view class='info-item'>
+        <text class='left'>导演</text>
+        <text class='right'>{{movie.director}}</text>
+      </view>
+
+      <view class='info-item'>
+        <text class='left'>影人</text>
+        <text class='right'>{{movie.castsName}}</text>
+      </view>
+
+      <view class='info-item'>
+        <text class='left'>类型</text>
+        <text class='right'>{{movie.genres}}</text>
+      </view>
     </view>
 
-    <image class='movie-img'></image>
+  </view>
+
+  <view class='hr'></view>
+
+  <view class='movie-summary'>
+
+    <text class='summary-text'>剧情简介</text>
+
+    <text class='summary-content'>{{movie.summary}}</text>
+
+  </view>
+
+  <view class='hr'></view>
+
+  <view class='movie-casts'>
+
+    <text class='casts-text'>影人</text>
+
+    <scroll-view class='scroll-view-h' scroll-x>
+      <block wx:for="{{movie.casts}}" wx:key="id">
+        <view class='casts-item'>
+            <image src='{{item.avatars.large}}'></image>
+            <text>{{item.name}}</text>
+        </view>
+      </block>
+    </scroll-view>
 
   </view>
 

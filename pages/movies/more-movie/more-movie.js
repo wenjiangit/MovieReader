@@ -11,7 +11,8 @@ Page({
     navigationTitle: "",
     movies: [],
     dataUrl: "",
-    isLoadMore: false
+    isLoadMore: false,
+    loadMoreText: "正在加载更多..."
   },
 
   /**
@@ -65,10 +66,9 @@ Page({
     }
 
     if (movies.length == 0 && this.data.isLoadMore) {
-      wx.showToast({
-        title: '没有更多了',
+      this.setData({
+        loadMoreText: "没有更多了"
       })
-      wx.hideNavigationBarLoading();
       return;
     }
 
@@ -94,6 +94,22 @@ Page({
 
   },
 
+  toMovieDetail: function (event) {
+    // console.log(event);
+    var movieId = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../movie-detail/movie-detail?id=' + movieId,
+    })
+  },
+
+  goneLoadMoreView: function () {
+    if (this.data.isLoadMore) {
+      this.setData({
+        isLoadMore: false
+      })
+    }
+  },
+
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
@@ -112,9 +128,9 @@ Page({
   onReachBottom: function () {
     var url = this.data.dataUrl + "?start=" + this.data.movies.length;
     this.setData({
-      isLoadMore: true
+      isLoadMore: true,
+      loadMoreText: "正在加载更多..."
     })
-    wx.showNavigationBarLoading();
     util.httpGet(url, this.resolveData);
   },
 
