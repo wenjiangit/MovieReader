@@ -27,7 +27,7 @@
       </view>
     </view>
 
-    <image class='movie-img' src="{{movie.image}}"></image>
+    <image class='movie-img' src="{{movie.image}}" bindtap='onImgTap' data-url='{{movie.image}}'></image>
 
   </view>
 

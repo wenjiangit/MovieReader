@@ -62,6 +62,13 @@ Page({
     return names.join(" , ");
   },
 
+  onImgTap:function(e){
+    var imgUrl = e.currentTarget.dataset.url;
+    wx.previewImage({
+      urls: [imgUrl],
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
