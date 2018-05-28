@@ -17,3 +17,7 @@
   margin-bottom: 16rpx;
 
 }
+
+.stars-style{
+  margin-bottom: 20rpx;
+}

@@ -12,7 +12,7 @@ Page({
     movies: [],
     dataUrl: "",
     isLoadMore: false,
-    loadMoreText:"正在加载更多..."
+    loadMoreText: "正在加载更多..."
   },
 
   /**
@@ -94,10 +94,18 @@ Page({
 
   },
 
-  goneLoadMoreView:function(){
-    if(this.data.isLoadMore){
+  toMovieDetail: function (event) {
+    // console.log(event);
+    var movieId = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../movie-detail/movie-detail?id=' + movieId,
+    })
+  },
+
+  goneLoadMoreView: function () {
+    if (this.data.isLoadMore) {
       this.setData({
-        isLoadMore:false
+        isLoadMore: false
       })
     }
   },

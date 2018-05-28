@@ -6,7 +6,9 @@
     <image class='movie-img' src='{{coverImg}}'></image>
     <text class='movie-title'>{{title}}</text>
 
+    <view class='stars-style'>
     <template is="starTemplate" data="{{stars:stars,score:average}}"/>
+    </view>
 
   </view>
 

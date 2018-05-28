@@ -1,1 +1,154 @@
 /* pages/movies/movie-detail/movie-detail.wxss */
+@import "../stars/stars-template.wxss";
+
+.movie-detail-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-header {
+  position: relative;
+  width: 100%;
+  height: 300rpx;
+}
+
+.header-bg {
+  position: absolute;
+  width: 100%;
+  height: 300rpx;
+  -webkit-filter: blur(10px);
+}
+
+.header-hover {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  margin-left: 40rpx;
+  margin-top: 36rpx;
+}
+
+.movie-img {
+  width: 175rpx;
+  height: 240rpx;
+  position: absolute;
+  right: 30rpx;
+  bottom: -80rpx;
+}
+
+.movie-title {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+}
+
+.country-year {
+  margin-top: 45rpx;
+}
+
+.country-year text {
+  font-size: 30rpx;
+  color: white;
+  margin-right: 20rpx;
+}
+
+.like-and-comment {
+  margin-top: 40rpx;
+}
+
+.bright {
+  color: #f21146;
+  font-size: 24rpx;
+  margin-right: 20rpx;
+}
+
+.unbright {
+  color: white;
+  font-size: 24rpx;
+  margin-right: 20rpx;
+}
+
+.movie-info {
+  margin: 48rpx 40rpx;
+}
+
+.original {
+  font-size: 26rpx;
+  font-weight: bold;
+}
+
+.info-list {
+  margin-top: 50rpx;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10rpx;
+}
+
+.info-item .left {
+  color: #cdcdcd;
+  font-size: 26rpx;
+  width: 2rem;
+}
+
+.info-item .right {
+  font-size: 26rpx;
+  margin-left: 40rpx;
+}
+
+.hr {
+  background-color: #d9d9d9;
+  width: 100%;
+  height: 1px;
+}
+
+.movie-summary {
+  margin: 50rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-text {
+  color: #cdcdcd;
+  font-size: 26rpx;
+}
+
+.summary-content {
+  margin-top: 30rpx;
+  letter-spacing: 5rpx;
+  font-size: 24rpx;
+  line-height: 50rpx;
+}
+
+.movie-casts {
+  margin: 50rpx 40rpx;
+}
+
+.casts-text {
+  color: #cdcdcd;
+  font-size: 26rpx;
+}
+
+.casts-item {
+  display: inline-block;
+  flex-direction: column;
+  margin-right: 40rpx;
+}
+
+.scroll-view-h {
+  width: 100%;
+  margin-top: 40rpx;
+  white-space: nowrap;
+}
+
+.casts-item image {
+  width: 175rpx;
+  height: 240rpx;
+}
+
+.real-item {
+  width: 175rpx;
+  display: flex;
+  flex-direction: column;
+}
