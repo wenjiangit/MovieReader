@@ -6,8 +6,8 @@
 
 
 
-![](E:\wechat_apps\MovieReader\screenshort\home.png)  ![](E:\wechat_apps\MovieReader\screenshort\post1.png)
+![](https://github.com/wenjiangit/MovieReader/blob/master/screenshort/home.png)  ![](https://github.com/wenjiangit/MovieReader/blob/master/screenshort/post1.png)
 
-![](E:\wechat_apps\MovieReader\screenshort\post2.png) ![](E:\wechat_apps\MovieReader\screenshort\movie1.png) 
+![](https://github.com/wenjiangit/MovieReader/blob/master/screenshort/post2.png) ![](https://github.com/wenjiangit/MovieReader/blob/master/screenshort/movie1.png) 
 
-![](E:\wechat_apps\MovieReader\screenshort\movie2.png) ![](E:\wechat_apps\MovieReader\screenshort\movie3.png) 
+![](https://github.com/wenjiangit/MovieReader/blob/master/screenshort/movie2.png) ![](https://github.com/wenjiangit/MovieReader/blob/master/screenshort/movie3.png) 
