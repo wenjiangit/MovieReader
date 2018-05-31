@@ -87,7 +87,7 @@ Page({
 
     if (movies.length == 0 && !override) {
       this.setData({
-        loadMoreText: "没有更多了",
+        loadMoreText: "--人家也是有底线的--",
         showLoadMore: true
       })
       return;

@@ -1,4 +1,3 @@
-// pages/movies/movie-detail/movie-detail.js
 
 const app = getApp();
 const util = require("../../../utils/util.js");
@@ -10,7 +9,6 @@ Page({
    */
   data: {
     movie: {}
-
   },
 
   /**
@@ -33,9 +31,6 @@ Page({
     }).then(() => {
       wx.hideLoading();
     })
-
-    // util.httpGet(getMovieUrl, this.processData);
-
   },
 
   processData: function (data) {
@@ -82,7 +77,6 @@ Page({
 
     this.data.movie.casts.forEach(function(x){
       imgs.push(x.avatars.large);
-
     })
     wx.previewImage({
       urls: imgs,

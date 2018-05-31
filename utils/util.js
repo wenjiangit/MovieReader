@@ -45,6 +45,7 @@ function httpGet(url, callback) {
   })
 }
 
+//使用promise对异步网络请求进行封装
 function wxRequest(obj) {
   return new Promise((resolve, reject) => {
     if (typeof obj.header === "undefined") {
