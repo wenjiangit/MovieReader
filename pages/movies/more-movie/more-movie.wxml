@@ -5,7 +5,7 @@
   <template is="movieGridTemplate" data="{{movies}}" />
 </view>
 
-<view wx:if="{{isLoadMore}}" class='load-more-box'>
+<view wx:if="{{showLoadMore}}" class='load-more-box'>
 
   <text class='load-more-text'>{{loadMoreText}}</text>
 

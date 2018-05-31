@@ -13,7 +13,7 @@ Page({
     top250: {},
     movieListShow: true,
     searchPanelShow: false,
-    searchResult:{}
+    searchResult: {}
   },
 
   /**
@@ -36,21 +36,32 @@ Page({
   getMovieList: function (url, category, dataKey) {
     wx.showNavigationBarLoading();
     var that = this;
-    wx.request({
-      url: url,
-      method: "GET",
-      header: {
-        'content-type': "json"
-      },
-      success: function (res) {
-        wx.hideNavigationBarLoading();
-        that.processDoubanData(res.data, category, dataKey);
-      },
-      fail: function () {
-        wx.hideNavigationBarLoading();
-        console.log("failed");
-      }
-    })
+    //使用promise简化请求
+    util.wxRequest({
+      url: url
+    }).then(function (res) {
+      that.processDoubanData(res.data, category, dataKey);
+    }).catch(function (err) {
+      console.log("[ERROR]==>",err);
+    }).then(function () {
+      wx.hideNavigationBarLoading();
+    });
+
+    // wx.request({
+    //   url: url,
+    //   method: "GET",
+    //   header: {
+    //     'content-type': "json"
+    //   },
+    //   success: function (res) {
+    //     wx.hideNavigationBarLoading();
+    //     that.processDoubanData(res.data, category, dataKey);
+    //   },
+    //   fail: function () {
+    //     wx.hideNavigationBarLoading();
+    //     console.log("failed");
+    //   }
+    // })
 
   }
   ,
@@ -107,6 +118,19 @@ Page({
 
       var searchUrl = app.globalData.doubanBase + "/v2/movie/search?q=" + e.detail.value;
       this.getMovieList(searchUrl, "", "searchResult");
+      // wx.request({
+      //   url: searchUrl,
+      //   data: {
+      //     q: e.detail.value
+      //   },
+      //   header: {
+      //     "Content-Type": "json"
+      //   },
+      //   success: function (res) {
+      //     console.log(res.data);
+      //   }
+      // })
+
     }
   },
   onCloseTap: function () {

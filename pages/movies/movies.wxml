@@ -5,7 +5,8 @@
 
   <image class='search-img' src='/images/icon/search.png'></image>
 
-  <input bindblur='onBindConfirm' placeholder='请输入搜索关键字' placeholder-class='place-holder'></input>
+  <input bindblur='onBindConfirm' placeholder='请输入搜索关键字' placeholder-class='place-holder'
+  confirm-type='搜索'></input>
 
   <image wx:if="{{searchPanelShow}}" class='xx-img' src='/images/icon/xx.png' bindtap='onCloseTap'></image>
 

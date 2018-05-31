@@ -79,9 +79,9 @@
 
     <scroll-view class='scroll-view-h' scroll-x>
       <block wx:for="{{movie.casts}}" wx:key="id">
-        <view class='casts-item'>
-            <image src='{{item.avatars.large}}'></image>
-            <text>{{item.name}}</text>
+        <view class='casts-item' bindtap='onCastsImgTap' data-index='{{index}}'>
+          <image src='{{item.avatars.large}}'></image>
+          <text>{{item.name}}</text>
         </view>
       </block>
     </scroll-view>

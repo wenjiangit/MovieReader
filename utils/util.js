@@ -45,10 +45,40 @@ function httpGet(url, callback) {
   })
 }
 
+function wxRequest(obj) {
+  return new Promise((resolve, reject) => {
+    if (typeof obj.header === "undefined") {
+      obj.header = {
+        "Content-Type": "json"
+      }
+    };
+    obj.success = res => resolve(res);
+    obj.fail = err => reject(err);
+    wx.request(obj);
+  })
+}
+
+
+function promisfy(api) {
+  return function (obj) {
+    return new Promise(function (resolve, reject) {
+      obj.success = function (res) {
+        resolve(res);
+      };
+      obj.fail = function (res) {
+        reject(res);
+      }
+      api(obj);
+    })
+  }
+}
+
 
 
 module.exports = {
   formatTime: formatTime,
   convertToStarArray: convertToStarArray,
-  httpGet: httpGet
+  httpGet: httpGet,
+  promisfy: promisfy,
+  wxRequest: wxRequest
 }
